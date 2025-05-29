@@ -23,6 +23,8 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import SelectBox from "@/app/lib/SelectBox";
+import TextFieldWrapper from "@/app/lib/TextField";
 
 interface DayEntry {
   day: string;
@@ -81,15 +83,16 @@ export default function OperationalDetails() {
       </Typography>
       <Grid container spacing={2} alignItems="center">
         <Grid size={{ xs: 12, sm: 4 }}>
-          <Select fullWidth value={day} onChange={(e) => setDay(e.target.value)} displayEmpty>
-            <MenuItem value="" disabled>Select</MenuItem>
-            {daysOfWeek.map((d) => (
-              <MenuItem key={d} value={d}>{d}</MenuItem>
-            ))}
-          </Select>
+        <SelectBox
+          label="Day"
+          required
+          value={day}
+          onChange={(e) => setDay(e.target.value as string)}
+          options={daysOfWeek.map((d) => ({ label: d, value: d }))}
+        />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField
+          <TextFieldWrapper
             type="time"
             fullWidth
             value={openingTime}
@@ -99,7 +102,7 @@ export default function OperationalDetails() {
           />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField
+          <TextFieldWrapper
             type="time"
             fullWidth
             value={closingTime}

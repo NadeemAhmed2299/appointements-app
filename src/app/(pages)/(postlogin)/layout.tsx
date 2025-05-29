@@ -18,6 +18,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { routeList } from "./routeList";
+import Image from "next/image";
 
 const drawerWidth = 240;
 
@@ -69,7 +70,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                                         color: isActive ? theme.palette.primary.main : "inherit",
                                     }}
                                 >
-                                    {item.icon}
+                                    <Image src={item.icon} alt={item.label} width={24} height={24} />
                                 </ListItemIcon>
                                 {isSidebarOpen && <ListItemText primary={item.label} />}
                             </ListItemButton>

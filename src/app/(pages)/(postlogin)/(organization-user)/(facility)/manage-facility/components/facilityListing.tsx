@@ -1,5 +1,6 @@
 "use client";
 
+import { ActionMenu } from "@/app/components/actionMenu";
 import ComponentHeader from "@/app/components/componentHeader";
 import { getStatusColor } from "@/app/utils/util";
 import { Button, Card, Chip } from "@mui/material";
@@ -69,6 +70,12 @@ function FacilityListing() {
         },
         { field: 'dateAdded', headerName: 'Date Added', flex: 1 },
         { field: 'dateModified', headerName: 'Last Updated on', flex: 1 },
+        {
+            field: 'actions',
+            headerName: 'Action(s)',
+            flex: 1,
+            renderCell: (params: GridRenderCellParams) => <ActionMenu />,
+        },
     ]
 
     return (

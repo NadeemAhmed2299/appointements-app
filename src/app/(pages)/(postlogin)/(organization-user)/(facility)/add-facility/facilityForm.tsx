@@ -9,6 +9,7 @@ import { FacilityObjectSchema } from "./facility";
 import { z } from "zod";
 import OperationalDetails from "./operationalDetails";
 import HolidayHours from "./holidayHours";
+import TextFieldWrapper from "@/app/lib/TextField";
 
 export const FacilityForm = () => {
   const {
@@ -60,20 +61,20 @@ export const FacilityForm = () => {
       <Typography variant="h5" sx={{ mb: 2 }}>Facility Details</Typography>
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="Facility Code" fullWidth {...register("facilityDetails.facilityCode")} error={!!errors.facilityDetails?.facilityCode} helperText={errors.facilityDetails?.facilityCode?.message} />
+          <TextBox label="Facility Code" fullWidth {...register("facilityDetails.facilityCode")} error={!!errors.facilityDetails?.facilityCode} helperText={errors.facilityDetails?.facilityCode?.message} />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="Facility Name" fullWidth {...register("facilityDetails.facilityName")} error={!!errors.facilityDetails?.facilityName} helperText={errors.facilityDetails?.facilityName?.message} />
+          <TextBox label="Facility Name" fullWidth {...register("facilityDetails.facilityName")} error={!!errors.facilityDetails?.facilityName} helperText={errors.facilityDetails?.facilityName?.message} />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="Facility Type" fullWidth select {...register("facilityDetails.facilityType")} error={!!errors.facilityDetails?.facilityType} helperText={errors.facilityDetails?.facilityType?.message}>
+          <TextBox label="Facility Type" fullWidth select {...register("facilityDetails.facilityType")} error={!!errors.facilityDetails?.facilityType} helperText={errors.facilityDetails?.facilityType?.message}>
             <MenuItem value="Park Avenue">Park Avenue</MenuItem>
-          </TextField>
+          </TextBox>
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="Parent Entity" fullWidth select {...register("facilityDetails.parentEntity")} error={!!errors.facilityDetails?.parentEntity} helperText={errors.facilityDetails?.parentEntity?.message}>
+          <TextBox label="Parent Entity" fullWidth select {...register("facilityDetails.parentEntity")} error={!!errors.facilityDetails?.parentEntity} helperText={errors.facilityDetails?.parentEntity?.message}>
             <MenuItem value="Park Avenue">Park Avenue</MenuItem>
-          </TextField>
+          </TextBox>
         </Grid>
       </Grid>
 
@@ -81,19 +82,19 @@ export const FacilityForm = () => {
       <Typography variant="h5" sx={{ mt: 4, mb: 2 }}>Address Details</Typography>
       <Grid container spacing={2}>
         <Grid  size={{ xs: 12, sm: 6 }}>
-          <TextField label="Address 1" fullWidth {...register("addressDetails.address1")} error={!!errors.addressDetails} helperText={errors.addressDetails?.address1?.message} />
+          <TextBox label="Address 1" fullWidth {...register("addressDetails.address1")} error={!!errors.addressDetails} helperText={errors.addressDetails?.address1?.message} />
         </Grid>
         <Grid size={{ xs: 12, sm: 6 }}>
-          <TextField label="Address 2" fullWidth {...register("addressDetails.address2")} />
+          <TextBox label="Address 2" fullWidth {...register("addressDetails.address2")} />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="City" fullWidth {...register("addressDetails.city")} error={!!errors.addressDetails?.city} helperText={errors.addressDetails?.city?.message} />
+          <TextBox label="City" fullWidth {...register("addressDetails.city")} error={!!errors.addressDetails?.city} helperText={errors.addressDetails?.city?.message} />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="ZIP" fullWidth {...register("addressDetails.zip")} error={!!errors.addressDetails?.zip} helperText={errors.addressDetails?.zip?.message} />
+          <TextBox label="ZIP" fullWidth {...register("addressDetails.zip")} error={!!errors.addressDetails?.zip} helperText={errors.addressDetails?.zip?.message} />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="State" fullWidth {...register("addressDetails.state")} error={!!errors.addressDetails?.state} helperText={errors.addressDetails?.state?.message} />
+          <TextBox label="State" fullWidth {...register("addressDetails.state")} error={!!errors.addressDetails?.state} helperText={errors.addressDetails?.state?.message} />
         </Grid>
       </Grid>
 
@@ -101,25 +102,25 @@ export const FacilityForm = () => {
       <Typography variant="h5" sx={{ mt: 4, mb: 2 }}>Contact Details</Typography>
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="Primary Contact Name" fullWidth {...register("contactDetails.primaryContactName")} />
+          <TextBox label="Primary Contact Name" fullWidth {...register("contactDetails.primaryContactName")} />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="Primary Contact Number" fullWidth {...register("contactDetails.primaryContactNumber")} />
+          <TextBox label="Primary Contact Number" fullWidth {...register("contactDetails.primaryContactNumber")} />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="Secondary Contact Number" fullWidth {...register("contactDetails.secondaryContactNumber")} />
+          <TextBox label="Secondary Contact Number" fullWidth {...register("contactDetails.secondaryContactNumber")} />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="Primary Email" fullWidth {...register("contactDetails.primaryEmail")} />
+          <TextBox label="Primary Email" fullWidth {...register("contactDetails.primaryEmail")} />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="Fax Number" fullWidth {...register("contactDetails.faxNumber")} />
+          <TextBox label="Fax Number" fullWidth {...register("contactDetails.faxNumber")} />
         </Grid>
         <Grid size={{ xs: 12, sm: 4 }}>
-          <TextField label="Website URL" fullWidth {...register("contactDetails.website")} />
+          <TextBox label="Website URL" fullWidth {...register("contactDetails.website")} />
         </Grid>
         <Grid size={{ xs: 12}}>
-          <TextField label="Brief Description" fullWidth multiline rows={3} {...register("contactDetails.description")} />
+          <TextBox label="Brief Description" fullWidth multiline rows={3} {...register("contactDetails.description")} />
         </Grid>
       </Grid>
 

@@ -21,6 +21,8 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { useSidebar } from "../contexts/sidebarContext";
+import Image from "next/image";
+import { drawer } from "../svg";
 
 type HeaderProps = {
   children?: React.ReactNode;
@@ -74,7 +76,7 @@ function Header({ children, pillLabel, userRole = "User" }: HeaderProps) {
           onClick={toggleSidebar}
           sx={{ mr: 2 }}
         >
-          <MenuIcon />
+          <Image src={drawer} alt="logo" width={24} height={24} />
         </IconButton>
 
         <Box flexGrow={1}>{children}</Box>

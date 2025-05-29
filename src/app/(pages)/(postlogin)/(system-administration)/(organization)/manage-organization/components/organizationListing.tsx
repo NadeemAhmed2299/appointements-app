@@ -1,11 +1,12 @@
 "use client";
 
+import { ActionMenu } from "@/app/components/actionMenu";
 import ComponentHeader from "@/app/components/componentHeader";
+import DataTable from "@/app/components/dataTable";
 import { formatDateToShortMonth, getStatusColor } from "@/app/utils/util";
 import { Button, Card, Chip } from "@mui/material";
 import { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import { Fragment } from "react";
-import DataTable from "../../../dashboard/components/dataTable";
 
 export interface Organization {
     organizationID: string;
@@ -75,11 +76,18 @@ function OrganizationListing() {
             ),
         },
         { field: 'location', headerName: 'Location', flex: 1 },
-        { 
-            field: 'lastUpdatedOn', 
-            headerName: 'Last Updated on', 
-            flex: 1, 
+        {
+            field: 'lastUpdatedOn',
+            headerName: 'Last Updated on',
+            flex: 1,
             valueFormatter: formatDateToShortMonth
+        },
+        { field: 'dateModified', headerName: 'Last Updated on', flex: 1 },
+        {
+            field: 'actions',
+            headerName: 'Action(s)',
+            flex: 1,
+            renderCell: (params: GridRenderCellParams) => <ActionMenu/>,
         },
     ]
 

@@ -23,6 +23,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import TextFieldWrapper from "@/app/lib/TextField";
 
 interface DayEntry {
     holiday: string;
@@ -94,7 +95,7 @@ export default function HolidayHours() {
                     </Select>
                 </Grid>
                 <Grid size={{ xs: 12, sm: 4 }}>
-                    <TextField
+                    <TextFieldWrapper
                         type="time"
                         fullWidth
                         value={openingTime}
@@ -104,7 +105,7 @@ export default function HolidayHours() {
                     />
                 </Grid>
                 <Grid size={{ xs: 12, sm: 4 }}>
-                    <TextField
+                    <TextFieldWrapper
                         type="time"
                         fullWidth
                         value={closingTime}

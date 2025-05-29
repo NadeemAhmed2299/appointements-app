@@ -1,14 +1,14 @@
 
-import {
-    Dashboard as DashboardIcon,
-    People as PeopleIcon,
-    Schedule as ScheduleIcon,
-    Settings as SettingsIcon
-} from "@mui/icons-material";
+import { dashboardIcon, graphIcon, historyIcon, hospitalIcon, organizationIcon, powerIcon, profileIcon, setting2Icon, settingsIcon } from "@/app/svg";
 
 export const routeList = [
-    { label: "Dashboard", icon: <DashboardIcon />, href: "/dashboard" },
-    { label: "Facility", icon: <SettingsIcon />, href: "/facility" },
-    { label: "Resources", icon: <PeopleIcon />, href: "/resources" },
-    { label: "Schedule", icon: <ScheduleIcon />, href: "/schedule" },
+    { label: 'Dashboard', icon: dashboardIcon, href: '/dashboard' },
+    { label: 'Resources', icon: organizationIcon, href: '/resources' },
+    { label: 'Schedules', icon: hospitalIcon, href: '/schedules' },
+    { label: 'History', icon: historyIcon, href: '/history' },
+    { label: 'Users', icon: profileIcon, href: '/users' },
+    { label: 'Settings', icon: settingsIcon, href: '/settings' },
+    { label: 'Stats', icon: graphIcon, href: '/stats' },
+    { label: 'OtherSettings', icon: setting2Icon, href: '/other-settings' },
+    { label: 'Logout', icon: powerIcon, href: '/' },
 ];

@@ -3,15 +3,13 @@
 import ComponentHeader from "@/app/components/componentHeader";
 import GrowingTextField from "@/app/components/growingTextField";
 import Header from "@/app/components/header";
+
 import { Box, Button, Grid } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
+
 import DashboardStats from "./components/dashboardStats";
 import ExternalLinks from "./components/externalLinks";
-import Facility from "./components/organizations";
-import InsightsAndRecommendations from "./components/insightsAndRecommendations";
 import RecentNotifications from "./components/recentNotifications";
-import StaffDistribution from "./components/staffDistribution";
-import TreatmentUtilization from "./components/treatmentUtilization";
 import AiOptimizationMetrics from "./components/aiOptimizationMetrics";
 import Organizations from "./components/organizations";
 

@@ -1,11 +1,11 @@
 "use client";
 
+import { ActionMenu } from "@/app/components/actionMenu";
 import ComponentHeader from "@/app/components/componentHeader";
 import { getStatusColor } from "@/app/utils/util";
 import { Button, Card, Chip } from "@mui/material";
 import { DataGrid, GridRenderCellParams } from '@mui/x-data-grid';
 import { Fragment } from "react";
-import { ActionMenu } from "./actionMenu";
 
 export interface OrganizationUsage {
     name: string;

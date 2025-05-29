@@ -42,6 +42,7 @@ export function formatTimeAgo(dateString: string): string {
   return 'just now';
 }
 
+// TODO: Optimize below 3 functions to use a single function with parameters for status and color mapping
 export function getStatusColor(status: string):
   ("secondary" | "error" | "info" | "success" | "warning" | "default") {
   switch (status) {
@@ -54,6 +55,37 @@ export function getStatusColor(status: string):
     default:
       return "default";
   }
+};
+
+export function getRoomStatusColor(status: string):
+  ("primary" | "error" | "success" | "warning" | "default") {
+  switch (status) {
+    case "Available":
+      return "success";
+    case "Booked":
+      return "error";
+    case "Maintenance":
+      return "warning";
+    default:
+      return "default";
+  }
+};
+
+
+export function getPriorityStatusColor(status: string):
+  ("primary" | "error" | "success" | "warning" | "default") {
+  switch (status) {
+      case 'High':
+        return 'error';
+      case 'Medium':
+        return 'warning';
+      case 'Low':
+        return 'success';
+      case 'recurring':
+        return 'primary';
+      default:
+        return 'default';
+    }
 };
 
 

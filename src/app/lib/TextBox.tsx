@@ -3,7 +3,7 @@ import { Box, TextField, TextFieldProps, Tooltip, Typography } from '@mui/materi
 import { ReactNode } from 'react';
 
 type TextBoxProps = {
-  label: string;
+  label?: string;
   helperText?: string;
   title?: ReactNode;
   required?: boolean;
