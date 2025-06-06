@@ -2,10 +2,11 @@
 
 import { ActionMenu } from "@/app/components/actionMenu";
 import ComponentHeader from "@/app/components/componentHeader";
+import DataTable from "@/app/components/dataTable";
 import { getStatusColor } from "@/app/utils/util";
 import { Button, Card, Chip } from "@mui/material";
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 export interface facilityUser {
     name: string;
@@ -55,6 +56,11 @@ const rows: Array<facilityUser> = [
 
 function FacilityListing() {
 
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
     const columns: GridColDef[] = [
         { field: 'name', headerName: 'Facility Name', flex: 1 },
         { field: 'email', headerName: 'Email', flex: 1 },
@@ -85,11 +91,12 @@ function FacilityListing() {
                     <Button href="/add-facility" variant="contained">Add Facility</Button>
                 </Fragment>
             } />
-
-            <DataGrid
-                rows={rows.map((row, index) => ({ id: index, ...row }))}
+            { isMounted && <DataTable
+                tableRows={rows}
                 columns={columns}
-            />
+                getRowId={(row) => row.id}
+            />}
+
         </Card>
     )
 }

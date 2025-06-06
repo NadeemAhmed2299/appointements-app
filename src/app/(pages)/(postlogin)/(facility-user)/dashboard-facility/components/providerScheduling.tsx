@@ -1,6 +1,8 @@
+"use client"
+
+import DataTable from '@/app/components/dataTable';
 import { Card, CardContent, Grid, Typography } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface InfoCardProps {
     title: string;
@@ -26,6 +28,13 @@ const providersSchedulingData: waitListData[] = [
 
 
 function ProviderScheduling() {
+
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     const columns = [
         { field: 'provider', headerName: 'Provider', flex: 1 },
         { field: 'load', headerName: 'Load', flex: 1 },
@@ -56,11 +65,11 @@ function ProviderScheduling() {
                             );
                         })}
                     </Grid>
-
-                    <DataGrid
-                        rows={providersSchedulingData.map((row, index) => ({ id: index, ...row }))}
+                    {isMounted && <DataTable
+                        tableRows={providersSchedulingData}
                         columns={columns}
-                    />
+                        getRowId={(row) => row.id}
+                    />}
                 </CardContent>
             </Card>
         </Grid>

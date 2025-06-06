@@ -6,7 +6,7 @@ import DataTable from "@/app/components/dataTable";
 import { formatDateToShortMonth, getStatusColor } from "@/app/utils/util";
 import { Button, Card, Chip } from "@mui/material";
 import { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 export interface Organization {
     organizationID: string;
@@ -62,6 +62,12 @@ const organizations: Organization[] = [
 
 function OrganizationListing() {
 
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);    
+
     const columns: GridColDef[] = [
         { field: 'organizationName', headerName: 'Facility Name', flex: 1 },
         { field: 'organizationType', headerName: 'Type', flex: 1 },
@@ -99,7 +105,7 @@ function OrganizationListing() {
                 </Fragment>
             } />
 
-            <DataTable tableRows={organizations} columns={columns} />
+            {isMounted &&<DataTable tableRows={organizations} columns={columns} />}
         </Card>
     )
 }

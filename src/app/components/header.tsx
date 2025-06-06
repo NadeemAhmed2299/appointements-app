@@ -27,7 +27,7 @@ import { drawer } from "../svg";
 type HeaderProps = {
   children?: React.ReactNode;
   pillLabel?: string;
-  userRole?: "Organization" | "User" | "System Admin" | "Facility";
+  userRole?: "Organization" | "User" | "System Admin" | "Facility" | "Nurse";
 };
 
 

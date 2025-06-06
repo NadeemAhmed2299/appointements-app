@@ -1,10 +1,11 @@
 "use client";
 
 import ComponentHeader from "@/app/components/componentHeader";
+import DataTable from "@/app/components/dataTable";
 import { getStatusColor } from "@/app/utils/util";
 import { Button, Card, Chip } from "@mui/material";
 import { DataGrid, GridRenderCellParams } from '@mui/x-data-grid';
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 export interface FacilityUsage {
     name: string;
@@ -54,6 +55,12 @@ const rows: Array<FacilityUsage> = [
 
 function Facility() {
 
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     const columns = [
         { field: 'name', headerName: 'Facility Name', flex: 1 },
         { field: 'location', headerName: 'Location', flex: 1 },
@@ -77,10 +84,11 @@ function Facility() {
                 </Fragment>
             } />
 
-            <DataGrid
-                rows={rows.map((row, index) => ({ id: index, ...row }))}
+            {isMounted && <DataTable
+                tableRows={rows}
                 columns={columns}
-            />
+                getRowId={(row) => row.id}
+            />}
         </Card>
     )
 }

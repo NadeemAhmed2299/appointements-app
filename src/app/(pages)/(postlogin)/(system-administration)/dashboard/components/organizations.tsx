@@ -2,10 +2,11 @@
 
 import { ActionMenu } from "@/app/components/actionMenu";
 import ComponentHeader from "@/app/components/componentHeader";
+import DataTable from "@/app/components/dataTable";
 import { getStatusColor } from "@/app/utils/util";
 import { Button, Card, Chip } from "@mui/material";
-import { DataGrid, GridRenderCellParams } from '@mui/x-data-grid';
-import { Fragment } from "react";
+import { GridRenderCellParams } from '@mui/x-data-grid';
+import { Fragment, useEffect, useState } from "react";
 
 export interface OrganizationUsage {
     name: string;
@@ -37,6 +38,12 @@ const rows: OrganizationUsage[] = [
 
 function Organizations() {
 
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);    
+
     const columns = [
         { field: 'name', headerName: 'Organization Name', flex: 1 },
         { field: 'facilities', headerName: 'Facilities', flex: 1 },
@@ -58,18 +65,17 @@ function Organizations() {
     ]
 
     return (
-        <Card sx={{ p: 4, flex: 1, height: '100%'  }}>
+        <Card sx={{ p: 4, flex: 1, height: '100%' }}>
             <ComponentHeader pageName={"Cancer Center Overview"} actions={
                 <Fragment>
                     <Button variant="contained" sx={{ fontWeight: 400 }}>Add Facility</Button>
                 </Fragment>
             } />
-
-            <DataGrid
-                rows={rows.map((row, index) => ({ id: index, ...row }))}
-                columns={columns}      
-                hideFooterPagination        
-            />
+            {isMounted && <DataTable
+                tableRows={rows}
+                columns={columns}
+                getRowId={(row) => row.id}
+            />}
         </Card>
     )
 }

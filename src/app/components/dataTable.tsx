@@ -8,6 +8,7 @@ type DataTableProps = {
   tableRows: Array<object>
   columns: GridColDef[]
   getRowId?: GridRowIdGetter<any>;
+
 }
 
 function DataTable({ tableRows, columns, getRowId }: DataTableProps) {
